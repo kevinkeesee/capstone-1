@@ -23,7 +23,7 @@ const Items = ({onChange, onSubmit, addToCart, searchView, input}) => {
             {searchView.map((current, index) => 
                 <div className='invItem' key={index.toString()}>
                     <div className='thumbnail'>
-                        <img src = {process.env.PUBLIC_URL + `./images/${current.image}.png`} />
+                        <img src = {process.env.PUBLIC_URL + `./images/${current.image}.png`} alt='A cool png'/>
                     </div>
                     <div className='specs'>
                         <p className='productName'>{current.name}</p>

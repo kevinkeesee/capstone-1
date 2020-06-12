@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import { InputGroup, FormControl} from 'react-bootstrap';
+import {InputGroup, FormControl} from 'react-bootstrap';
+import { PayPalButton } from "react-paypal-button-v2";
 
 const Cart = ({cart}) => {
-    
+
     // Simple number-oriented function to aid with adding the prices
     const arrTotal = (arr) => {
         let total = 0;
@@ -44,7 +45,7 @@ const Cart = ({cart}) => {
                             <form className='qInput' onSubmit={
                                 e => {e.preventDefault()
                                     current.quantity = input
-                                    {/* Update all values on submit */}
+                                    /* Update all values on submit */
                                     setPrices(cart.map(c => c.price * c.quantity))
                                     setTotalCost(arrTotal(prices))
                                     setSalesTax((totalCost * 0.0625).toFixed(2))
@@ -77,14 +78,21 @@ const Cart = ({cart}) => {
                         <p className='totalText'>Grand Total</p><p className='totalText'>&#36;{(Number(totalCost) + Number(salesTax)).toFixed(2)}</p>
                     </div>
                 </div>
+                
+                {/* PayPal buttons fit perfectly out of the box */}
+                <PayPalButton 
+                    amount={(Number(totalCost) + Number(salesTax)).toFixed(2)}
+                />
+
             </div>
             
             {/* Bit of decoration, showing an alternative view of the item panels */}
             <div className='cartItems'>
+
                 {cart.map((current, index) => 
                 <div className='cartItem' key={index.toString()}>
                     <div className='cartThumbnail'>
-                        <img src = {process.env.PUBLIC_URL + `./images/${current.image}.png`} />
+                        <img src = {process.env.PUBLIC_URL + `./images/${current.image}.png`} alt='Another cool png'/>
                     </div>
                     <div className='cartSpecs'>
                         <p className='productName'>{current.name}</p>
@@ -94,7 +102,7 @@ const Cart = ({cart}) => {
                         <p className='price'>&#36;{current.price}</p>
                     </div>
                 </div>
-            )}
+                )}
             </div>
         </div>
     )
