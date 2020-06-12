@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Rubik:wght@500&family=Work+Sans:wght@600&display=swap');
+
+/* App.js elements */
 .App {
   text-align: center;
   background-color: #3F3F3F;
@@ -15,13 +18,22 @@
   justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'Rubik', sans-serif;
 }
 
 .App-body {
   background-color: #3F3F3F;
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
 }
+
+p {
+  color: white;
+  line-height: 0.8;
+  font-size: 0.8vmax;
+}
+
+/* Navbar.jsx elements */
 
 .storeName{
   display: flex;
@@ -29,44 +41,52 @@
 }
 
 .name1{
-  font-size: 1.2vmax;
+  font-size: 2vmax;
   padding-right: 1vmin;
   align-self: center;
-  padding-top: 1vmin;
+  padding-top: 0.2vmin;
 }
 
 .name2{
+  font-size: 3vmax;
   margin-right: 1.5vmin;
-  font-size: 2.2vmax;
   align-self: center;
 }
 
 .location{
   font-size: 1.8vmax;
   padding: 1.5vmin;
-  border-left: gray solid 2px;
+  margin-top: 0.4vmin;
+  border-left: #999999 solid 2px;
 }
 
-.input{
+.links{
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.pageLink{
   align-self: center;
-  padding-top: 1vmin;
+  padding-left: 5vmin;
+  color: white;
+  font-family: 'Rubik', sans-serif;
 }
 
-#root > div > header > div.input > div > div > button{
+#root > div > header > div.links > div > a{
   color: white;
 }
 
-#root > div > header > div.input > div > div > button:hover{
-  background-color: gray;
+/* Items.jsx elements */
+
+.input{
+  align-self: center;
+  padding-top: 20px;
 }
 
 #root > div > header > div.cart > button{
   font-size: 20px;
   margin-top: 1.2vmin;
-}
-
-.cart{
-  margin-right: 10vmin;
+  color: white;
 }
 
 .invGrid{
@@ -74,13 +94,12 @@
   flex-flow: row wrap;
   margin: auto;
   width: 80%;
-  padding-left: 8%;
-  padding-top: 36px;
+  padding-left: 5vmax;
 }
 
 .invItem{
   background-color: #111111;
-  flex-basis: 21%;
+  flex-basis: 22%;
   padding: 10px 10px 0px 10px;
   margin: 10px;
   display: flex;
@@ -90,6 +109,8 @@
 
 .productName{
   font-size: 1vmax;
+  font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .price{
@@ -108,13 +129,129 @@
   margin-top: 5px;
 }
 
+#root > div > div > div > div > div.specs > button{
+  background-color: #3F3F3F;
+  border-color: #888888;
+}
+
+#root > div > div > div > div > div.specs > button:active{
+  background-color: #AFAFAF;
+}
+
+.add{
+  margin: 10px;
+}
+
 img{
   max-width: 100%;
   max-height: 150px;
 }
 
-p {
+/* Cart.jsx elements */
+
+.cartGrid{
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  justify-content: center;
+}
+
+.cartSummary{
+  background-color: #222222;
+  width: 30%;
+  height: 83.6vh;
+  margin-top: 3vmin;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.cartTitle{
+  background-color: #1A1B2F;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: solid #444444 1px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.cartTitleText{
+  font-size: 1.8vmax;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 8px;
+}
+
+.qItem{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding-top: 10px;
+  margin: 16px;
+  border-bottom: solid #333333 1px;
+}
+
+.qItemName{
+  font-size: 1.2vmax;
+  padding-top: 5px;
+}
+
+.qInput{
+  margin-bottom: 6px;
+}
+
+#root > div > div > div > div.cartSummary > div.quantities > div > form > div > input{
   color: white;
-  line-height: 0.8;
-  font-size: 0.8vmax;
+  font-size: larger;
+  background-color: black;
+  width: 4vmax;
+  text-align: justify;
+}
+
+.totalRow{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 16px;
+}
+
+.totalText{
+  font-size: 1.2vmax;
+  font-weight: bold;
+}
+
+.grandTotal{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 30px;
+  border-top: solid #333333 2px;
+}
+
+.cartItems{
+  margin: 3vmin;
+  width: 30%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.cartItem{
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: #222222;
+  padding-top: 20px;
+  border-bottom: solid #333333 2px;
+}
+
+.cartThumbnail{
+  width: 40%;
+  padding: 1vmax;
+}
+
+.cartSpecs{
+  text-align: left;
+  padding: 2vmax;
+}
+
+.totals{
+  padding-top: 30px;
 }
